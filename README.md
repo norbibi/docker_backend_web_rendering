@@ -8,7 +8,7 @@ docker-compose up
 docker exec -it ${backendContainerName} /bin/bash
 ```
 
-backendContainerName should be something like docker_web_rendering_backend_1.  
+backendContainerName should be something like docker_backned_web_rendering_backend_1 (docker ps).
 
 In the backend's container:
 ```
