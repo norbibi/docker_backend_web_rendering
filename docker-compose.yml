@@ -7,7 +7,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./web-gpu-rendering/backend:/home/golem/app
+      - ${PWD}/web-gpu-rendering/backend:/home/golem/app
   db:
     image: mysql:latest
     ports:
