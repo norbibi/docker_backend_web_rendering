@@ -11,6 +11,8 @@ In another terminal:
 ```
 docker exec -it ${backendContainerName} /bin/bash
 yagna payment fund
+yagna app-key create requestor
+export YAGNA_APPKEY=$(yagna app-key list --json | jq '.[].key' | tr -d '"')
 cd app
 npm install
 export HOST_BACKEND=db
