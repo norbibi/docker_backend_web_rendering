@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
 	ca-certificates \
 	gnupg \
 	zip \
+	dos2unix \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/apt/keyrings
@@ -39,6 +40,7 @@ RUN useradd golem -m
 
 RUN mkdir /home/golem/app
 COPY start.sh /home/golem/start.sh
+RUN dos2unix /home/golem/start.sh
 RUN chmod +x /home/golem/start.sh
 RUN chown -R golem:golem /home/golem
 
