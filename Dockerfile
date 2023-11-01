@@ -1,6 +1,7 @@
 FROM ubuntu:focal-20220801
 
 RUN apt-get update && apt-get install -y \
+	jq \
 	curl \
 	python3-pip \
 	libx11-6 \
@@ -9,11 +10,13 @@ RUN apt-get update && apt-get install -y \
 	libxrender1 \
 	libxfixes3 \
 	libgl1 \
+	libsm-dev \
 	libxkbcommon-x11-0 \
 	nano \
 	mysql-client \
 	ca-certificates \
 	gnupg \
+	zip \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/apt/keyrings
@@ -46,5 +49,7 @@ RUN touch /home/golem/.local/share/ya-installer/terms/testnet-01.tag
 RUN curl -sSf https://join.golem.network/as-requestor | bash - || echo "yes"
 
 ENV PATH=${PATH}:/home/golem/.local/bin/:/home/golem/.local/:/usr/bin
+
+EXPOSE 3001
 
 ENTRYPOINT ["yagna", "service", "run"]

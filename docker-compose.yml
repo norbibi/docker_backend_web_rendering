@@ -5,7 +5,7 @@ services:
     links:
       - db:mysql
     ports:
-      - 3000:3000
+      - 3001:3001
     volumes:
       - ${PWD}/web-gpu-rendering/backend:/home/golem/app
   db:
