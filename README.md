@@ -14,5 +14,6 @@ docker exec -it ${backendContainerName} /bin/bash
 yagna payment fund
 cd app
 npm install
+export HOST_BACKEND=db
 npm start
 ```
