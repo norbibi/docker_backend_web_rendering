@@ -38,7 +38,8 @@ RUN ln -s /opt/blender/blender /usr/bin/blender
 RUN useradd golem -m
 
 RUN mkdir /home/golem/app
-
+COPY start.sh /home/golem/start.sh
+RUN chmod +x /home/golem/start.sh
 RUN chown -R golem:golem /home/golem
 
 USER golem
@@ -52,4 +53,4 @@ ENV PATH=${PATH}:/home/golem/.local/bin/:/home/golem/.local/:/usr/bin
 
 EXPOSE 3001
 
-ENTRYPOINT ["yagna", "service", "run"]
+ENTRYPOINT ["/home/golem/start.sh"]
